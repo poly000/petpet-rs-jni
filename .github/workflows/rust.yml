@@ -1,11 +1,9 @@
 # Origin config by @Kilerd
 
-name: Build Release Version
+name: Build Canary Version
 
 on:
   push:
-    tags:
-      - "*.*.*"
 
 jobs:
   release:
@@ -56,9 +54,8 @@ jobs:
           then strip ${{ matrix.bin }}
           fi
           tar czvf petpet_jni-${{ matrix.platform }}.tar.gz ${{ matrix.bin }}
-      - name: Release assets
-        uses: softprops/action-gh-release@v1
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
-          files: target/${{ matrix.target }}/release/petpet_jni-${{ matrix.platform }}.tar.gz
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          name: artifact-${{ matrix.platform }}
+          path: petpet_jni-${{ matrix.platform }}.tar.gz
