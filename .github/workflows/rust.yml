@@ -44,7 +44,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --locked --release --target ${{ matrix.target }}
+          args: --release --target ${{ matrix.target }}
 
       - name: Prepare assets
         shell: bash
