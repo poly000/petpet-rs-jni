@@ -1,6 +1,6 @@
 use jni::JNIEnv;
 use jni::objects::{JClass, JString};
-use jni::sys::{jboolean, jint};
+use jni::sys::jint;
 
 use petpet::file_to_gif;
 use petpet::FilterType;
@@ -8,9 +8,11 @@ use petpet::FilterType;
 #[no_mangle]
 pub extern "system" fn GeneratePetpetToFile(env: JNIEnv,
                                             _class: JClass,
-                                            input: (JString, JString, jint)) -> jboolean {
-    let input: (String, String) = (env.get_string(input.0).expect("Couldn't get java string!").into(),
-                                   env.get_string(input.1).expect("Couldn't get java string!").into());
-
-    file_to_gif(input.0.into(), input.1.into(), input.2, FilterType::Lanczos3).is_ok()
+                                            input_image: JString,
+                                            output_gif: JString,
+                                            speed: jint) 
+{
+    let input_image: String = env.get_string(input_image).expect("Cannot get java String!").into();
+    let output_gif: String  = env.get_string(output_gif).expect("Cannot get java String!").into();
+    file_to_gif(input_image, output_gif, speed, FilterType::Lanczos3).unwrap();
 }
