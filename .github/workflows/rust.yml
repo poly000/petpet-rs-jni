@@ -53,9 +53,8 @@ jobs:
           if [[ ${{ matrix.target }} != x86_64-apple-darwin ]]
           then strip ${{ matrix.bin }}
           fi
-          tar czvf petpet_jni-${{ matrix.target }}.tar.gz ${{ matrix.bin }}
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: artifact-${{ matrix.target }}
-          path: target/${{ matrix.target }}/release/petpet_jni-${{ matrix.target }}.tar.gz
+          name: ${{ matrix.target }}
+          path: target/${{ matrix.target }}/release/${{ matrix.bin }}
