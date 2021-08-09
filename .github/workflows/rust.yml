@@ -13,6 +13,7 @@ jobs:
       matrix:
         platform: [macos, ubuntu, windows]
         include:
+        
           - platform: macos
             target: x86_64-apple-darwin
             os: macos-latest
@@ -29,6 +30,11 @@ jobs:
             bin: petpet_jni.dll
             
     steps:
+      - name: CI-SKIP-ACTION # skip if commits contains '[ci skip]'
+        uses: mstachniuk/ci-skip@v1
+        with:
+          fail-fast: true
+
       - name: Install toolchain
         uses: actions-rs/toolchain@v1
         with:
