@@ -5,8 +5,9 @@ use jni::sys::jint;
 use petpet::file_to_gif;
 use petpet::FilterType;
 
+#[link(name = "petpet_rs")]
 #[no_mangle]
-pub extern "system" fn GeneratePetpetToFile(env: JNIEnv,
+pub extern "system" fn Java_TestRustCallPerformance_Petpet_GeneratePetpetToFile(env: JNIEnv,
                                             _class: JClass,
                                             input_image: JString,
                                             output_gif: JString,
