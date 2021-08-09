@@ -1,7 +1,7 @@
 class Petpet {
     // This declares that the static `hello` method will be provided
     // a native library.
-    private static native bool GeneratePetpetToFile((String image, String gif, int speed));
+    private static native void GeneratePetpetToFile(String image, String gif, int speed);
 
     static {
         // This actually loads the shared object that we'll be creating.
