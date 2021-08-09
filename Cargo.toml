@@ -8,3 +8,7 @@ edition = "2018"
 [dependencies]
 jni = "~0.19.0"
 petpet = {path = "../petpet-rs"}
+
+[lib]
+name = "petpet_jni"
+crate-type = ["cdylib"]

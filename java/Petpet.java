@@ -7,6 +7,6 @@ class Petpet {
         // This actually loads the shared object that we'll be creating.
         // The actual location of the .so or .dll may differ based on your
         // platform.
-        System.loadLibrary("mylib");
+        System.loadLibrary("petpet_jni");
     }
 }
