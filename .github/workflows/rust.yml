@@ -30,11 +30,6 @@ jobs:
             bin: petpet_jni.dll
             
     steps:
-      - name: CI-SKIP-ACTION # skip if commits contains '[ci skip]'
-        uses: mstachniuk/ci-skip@v1
-        with:
-          fail-fast: true
-
       - name: Install toolchain
         uses: actions-rs/toolchain@v1
         with:
