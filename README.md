@@ -6,14 +6,11 @@ resources can be downloaded from [here](https://github.com/poly000/petpet-rs/rel
 
 ## Usage
 
-first, put [this class](java/Petpet.java) to where you like.
-
-second, run `javac -h path/to/the/code` to generate function name.
-
-(in the [example](java/Petpet.h), it's `Java_Petpet_GeneratePetpetToFile`)
-
-third, change the function name in your fork.
+1. put [this class](java/Petpet.java) to where you like.
+2. run `javac -h path/to/the/code` to generate function name.
+(in this [example](java/Petpet.h), it's `Java_Petpet_GeneratePetpetToFile`)
+3. change the function name in your fork.
 
 CI will generate this library for `x86_64-unknown-linux-gnu`, `x86_64-pc-windows-msvc`, and `x86_64-apple-darwin`
 
-you can add other targets manually in [rust.yml](,github/../.github/workflows/rust.yml)
+You can add other targets manually in [rust.yml](,github/../.github/workflows/rust.yml)
